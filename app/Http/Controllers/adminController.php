@@ -32,4 +32,25 @@ class adminController extends Controller
         $student->delete();
         return back();
     }
+
+    public function edit(student $student){
+        // $todo = Todo::findOrFail($id);
+        // dd($student);
+        $students = student::all();
+        return $student ;
+    }
+
+    public function update(Request $request, student $student){
+        // dd($request->post());
+        $validetor = $request->validate([
+            'name' => 'required|max:124',
+            'adno' =>  'required|max:3|min:3',
+            'class' => 'required'   
+        ]);
+        $student->update($validetor);
+        // $todo->title = $validetor['title'];
+        // $todo->save();
+        return back();
+        // dd($validetor);
+    }
 }

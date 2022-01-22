@@ -48,7 +48,7 @@
                         <td>{{ $student->adno }}</td>
                         <td>{{ $student->class }}</td>
                         <td class="table-action">
-                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
+                            <a href="javascript:void(0);" onclick="editCall({{$student}})" class="action-icon edit"> <i class="mdi mdi-pencil"></i></a>
                             <a href="{{ route('delete', $student->id) }}" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                         </td>
                     </tr>
@@ -71,19 +71,19 @@
             </div>
 
             <div class="student_adding_form">
-                <form method="POST" action="{{ route('add student') }}">
+                <form method="POST" action="{{ route('add student') }}" id="addForm" >
                     @csrf
                     <div class="mb-3">
                         <label for="simpleinput" class="form-label">Name:</label>
-                        <input type="text" id="simpleinput" name="name" class="form-control">
+                        <input type="text" id="name" name="name" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="example-number" class="form-label">Ad No:</label>
-                        <input class="form-control" name="adno" id="example-number" type="number" name="number">
+                        <input class="form-control" name="adno" id="adno" type="number" name="number">
                     </div>
                     <div class="mb-3">
                         <label for="example-select" class="form-label">Class:</label>
-                        <select class="form-select" name="class" id="example-select">
+                        <select class="form-select" name="class" id="class">
                             <option value="">Class</option>
                             <option value="1">1</option>
                             <option value="2">2</option>

@@ -1,22 +1,23 @@
 // openAddForm
 
-function openAddForm(){
-    document.getElementById('openAddForm').hidden=false
+function openAddForm() {
+    document.getElementById("openAddForm").hidden = false;
 }
 
-function closeForm(){
-    document.getElementById('openAddForm').hidden=true
+function closeForm() {
+    document.getElementById("openAddForm").hidden = true;
 }
 
-
-// $(window).load(function () {
-//     $("#plus-btn").click(function(){
-//        $('#openAddForm').show();
-//     });
-//     $('.hover_bkgr_fricc').click(function(){
-//         $('.hover_bkgr_fricc').hide();
-//     });
-//     $('.popupCloseButton').click(function(){
-//         $('.hover_bkgr_fricc').hide();
-//     });
-// });
+function editCall(student) {
+    $.ajax({
+        url: `edit/${student.id}`,
+        success: function (result) {
+            openAddForm();
+            $("#name").val(result.name);
+            $("#adno").val(result.adno);
+            $("#class").val(result.class);
+            $('#addForm').attr('action', `/update/${result.id}`);
+            console.log(result);
+        },
+    });
+}
