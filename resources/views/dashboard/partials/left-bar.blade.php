@@ -55,6 +55,15 @@
                 </div>
             </li>
 
+            <li class="side-nav-item">
+                <a href="{{route('students')}}" class="side-nav-link">
+                    <i class="uil-users-alt"></i>
+                    <span> Students </span>
+                </a>
+            </li>
+
+            
+
             <li class="side-nav-title side-nav-item">Apps</li>
 
             <li class="side-nav-item">
