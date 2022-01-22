@@ -23,3 +23,5 @@ Route::get('/dashboard',[adminController::class, 'dashboard'])->name('dashboard'
 Route::get('/students',[adminController::class, 'students'])->name('students');
 
 Route::post('/add student',[adminController::class, 'addStudents'])->name('add student');
+
+Route::get('/delete/{student}', [adminController::class, 'delete'])->name('delete');

@@ -26,4 +26,10 @@ class adminController extends Controller
         student::create($validetor);
         return back();
     }
+
+    public function delete(student $student){
+        // dd($student);
+        $student->delete();
+        return back();
+    }
 }

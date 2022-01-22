@@ -49,7 +49,7 @@
                         <td>{{ $student->class }}</td>
                         <td class="table-action">
                             <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                            <a href="{{ route('delete', $student->id) }}" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                         </td>
                     </tr>
 
