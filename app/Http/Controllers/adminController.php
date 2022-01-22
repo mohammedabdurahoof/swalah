@@ -12,7 +12,8 @@ class adminController extends Controller
     }
 
     public function students(){
-        return view('dashboard/students');
+        $students = student::all();
+        return view('dashboard/students',['students' => $students]);
     }
 
     public function addStudents(Request $request){
@@ -23,7 +24,6 @@ class adminController extends Controller
             'class' => 'required'
         ]);
         student::create($validetor);
-        // Todo::create($validetor);
         return back();
     }
 }

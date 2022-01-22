@@ -32,61 +32,29 @@
         <table class="table table-striped table-centered mb-0">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Account No.</th>
-                    <th>Balance</th>
+                    <th>Name</th>
+                    <th>Ad No</th>
+                    <th>Class</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="table-user">
-                        <img src="assets/images/users/avatar-2.jpg" alt="table-user" class="me-2 rounded-circle" />
-                        Risa D. Pearson
-                    </td>
-                    <td>AC336 508 2157</td>
-                    <td>July 24, 1950</td>
-                    <td class="table-action">
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-user">
-                        <img src="assets/images/users/avatar-3.jpg" alt="table-user" class="me-2 rounded-circle" />
-                        Ann C. Thompson
-                    </td>
-                    <td>SB646 473 2057</td>
-                    <td>January 25, 1959</td>
-                    <td class="table-action">
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-user">
-                        <img src="assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 rounded-circle" />
-                        Paul J. Friend
-                    </td>
-                    <td>DL281 308 0793</td>
-                    <td>September 1, 1939</td>
-                    <td class="table-action">
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table-user">
-                        <img src="assets/images/users/avatar-5.jpg" alt="table-user" class="me-2 rounded-circle" />
-                        Sean C. Nguyen
-                    </td>
-                    <td>CA269 714 6825</td>
-                    <td>February 5, 1994</td>
-                    <td class="table-action">
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                        <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                    </td>
-                </tr>
+                @foreach ($students as $student)
+                    <tr>
+                        <td class="table-user">
+                            {{-- <img src="assets/images/users/avatar-2.jpg" alt="table-user" class="me-2 rounded-circle" /> --}}
+                            {{ $student->name }}
+                        </td>
+                        <td>{{ $student->adno }}</td>
+                        <td>{{ $student->class }}</td>
+                        <td class="table-action">
+                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
+                            <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                        </td>
+                    </tr>
+
+                @endforeach
+
             </tbody>
         </table>
     </div>
@@ -99,12 +67,12 @@
                 <a href="javascript:void(0);" class="end-bar-toggle float-end">
                     <i class="dripicons-cross noti-icon" onclick="closeForm()"></i>
                 </a>
-                
+
             </div>
 
             <div class="student_adding_form">
-                <form method="POST" action="{{route('add student')}}">
-                @csrf
+                <form method="POST" action="{{ route('add student') }}">
+                    @csrf
                     <div class="mb-3">
                         <label for="simpleinput" class="form-label">Name:</label>
                         <input type="text" id="simpleinput" name="name" class="form-control">
